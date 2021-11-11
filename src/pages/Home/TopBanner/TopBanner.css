@@ -1,0 +1,73 @@
+.btnCustom {
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    background-color: transparent !important;
+    color: black !important;
+    border: 1px solid black !important;
+    font-size: 12px !important;
+    padding: 8px 25px !important;
+
+}
+
+.btnCustom2 {
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    background-color: white;
+    color: black !important;
+    border: 1px solid black !important;
+    font-size: 12px !important;
+    padding: 8px 25px !important;
+
+}
+
+.btnCustom:hover {
+
+    color: white !important;
+    background-color: #ca9e7b !important;
+    border: 1px solid #ca9e7b !important;
+}
+
+.btnCustom2:hover {
+
+    transition: .6s;
+    color: white !important;
+    background-color: #ca9e7b !important;
+    border: 1px solid #ca9e7b !important;
+}
+
+
+
+.hoverBtn {
+    cursor: pointer;
+    position: relative;
+    width: 50%;
+}
+
+.image {
+    opacity: 100;
+    display: block;
+    width: 100%;
+    height: auto;
+    transition: .5s ease;
+    backface-visibility: hidden;
+}
+
+.middle {
+    transition: .5s ease;
+    opacity: 0;
+    position: absolute;
+    top: 40%;
+    left: 55%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.hoverBtn:hover .image {
+    filter: blur(2px);
+
+    transition: .9s;
+}
+
+.hoverBtn:hover .middle {
+    opacity: 1;
+    transition: .6s;
+}
