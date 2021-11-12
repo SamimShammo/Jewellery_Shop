@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import exploreBg from '../../../img/exploreBg.jpg'
 import { Container } from 'react-bootstrap';
 import ExploreProducts from './ExploreProducts/ExploreProducts';
+import Header from '../../Shared/Header/Header';
 
 const Explore = () => {
     const [allProducts, setAllProducts] = useState([]);
@@ -26,6 +27,7 @@ const Explore = () => {
     }
     return (
         <>
+            <Header></Header>
             <Box style={banner}>
                 <Container>
                     <Grid>

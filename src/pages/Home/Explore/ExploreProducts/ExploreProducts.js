@@ -11,6 +11,8 @@ const ExploreProducts = (props) => {
     const handlePurchase = () => {
         history.push(`/purchase/${_id}`)
     }
+    const desCrip = product_description.slice(0, 70)
+    const nameResi = name.slice(0, 20)
     return (
         <>
             <Grid item xl={4} lg={4} md={4} sm={6} xs={12} className="hoverBtn" sx={{ mt: 2, mb: 2 }} >
@@ -20,10 +22,10 @@ const ExploreProducts = (props) => {
                 <Box sx={{ textAlign: 'center', mt: 2 }}>
 
                     <Typography sx={{ color: '#222', fontSize: "20px", fontWeight: 600, mb: 1 }}>
-                        {name.slice(0, 20)}
+                        {nameResi}
                     </Typography>
                     <Typography sx={{ color: '#888', mb: 2 }}>
-                        {product_description.slice(0, 70)}
+                        {desCrip}
                     </Typography>
                     <Typography sx={{ color: '#222', fontSize: '24px' }}>
                         {price}

@@ -1,0 +1,13 @@
+.not-found{
+  margin: 100px 0;
+    padding: 100px;
+    text-align: center;
+    background-color: white;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
+.error-404{
+    font-size: 150px;
+}
+.error{
+    color: rgb(4, 196, 255);
+}
