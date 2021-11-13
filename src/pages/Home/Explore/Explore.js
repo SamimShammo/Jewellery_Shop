@@ -5,12 +5,13 @@ import exploreBg from '../../../img/exploreBg.jpg'
 import { Container } from 'react-bootstrap';
 import ExploreProducts from './ExploreProducts/ExploreProducts';
 import Header from '../../Shared/Header/Header';
+import Footer from '../../Shared/Footer/Footer';
 
 const Explore = () => {
     const [allProducts, setAllProducts] = useState([]);
     useEffect(() => {
 
-        fetch('http://localhost:5000/jewellerys')
+        fetch('https://arcane-sierra-22755.herokuapp.com/jewellerys')
             .then(res => res.json())
             .then(data => setAllProducts(data))
     }, [])
@@ -53,6 +54,7 @@ const Explore = () => {
                     </Grid>
                 </Container>
             </Box>
+            <Footer></Footer>
         </>
     );
 };

@@ -31,7 +31,7 @@ const TopBanner = () => {
 
 
                         </Typography>
-                        <Button className="btnCustom">SHOP NOW</Button>
+                        <Button className="btnCustom"> <i class="fas fa-shopping-cart " style={{ marginRight: 6, fontSize: '20px' }}></i>SHOP NOW</Button>
                     </Grid>
 
                 </Container>

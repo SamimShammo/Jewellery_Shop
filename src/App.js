@@ -10,10 +10,7 @@ import AuthProvider from './pages/context/AuthProvider/AuthProvider';
 import PrivateRoute from './pages/PrivateRoute/PrivateRoute';
 import Dashboard from './pages/Dashoard/Dashboard/Dashboard';
 import Notfound from './pages/Notfound/Notfound';
-import MakeAdmin from './pages/Admin/MakeAdmin/MakeAdmin';
-import PrivateAdmin from './pages/Admin/PrivateAdmin/PrivateAdmin';
-import AddProducts from './pages/Admin/AddProducts/AddProducts';
-import ManageProducts from './pages/Admin/ManageProducts/ManageProducts';
+
 
 
 
@@ -47,19 +44,12 @@ function App() {
             <Route path="/login">
               <Login></Login>
             </Route>
-            <PrivateAdmin path="/makeAdmin">
-              <MakeAdmin></MakeAdmin>
-            </PrivateAdmin>
-            <PrivateAdmin path="/addProducts">
-              <AddProducts></AddProducts>
-            </PrivateAdmin>
-            <PrivateAdmin path="/manageProducts">
-              <ManageProducts></ManageProducts>
-            </PrivateAdmin>
+
             <Route path="*">
               <Notfound></Notfound>
             </Route>
           </Switch>
+
         </Router>
       </AuthProvider>
 

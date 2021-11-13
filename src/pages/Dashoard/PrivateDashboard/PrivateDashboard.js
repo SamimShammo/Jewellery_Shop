@@ -7,7 +7,7 @@ import useAuth from '../../hooks/useAuth';
 
 
 const PrivateDashboard = ({ children, ...rest }) => {
-    const { user, isLoading } = useAuth()
+    const { user, isLoading, admin } = useAuth()
     if (isLoading) {
         return <CircularProgress />
     }
@@ -15,12 +15,12 @@ const PrivateDashboard = ({ children, ...rest }) => {
         <Route
             {...rest}
             render={({ location }) =>
-                user?.email ? (
+                user?.email && !admin || admin ? (
                     children
                 ) : (
                     <Redirect
                         to={{
-                            pathname: "/login",
+                            pathname: "/dashboard",
                             state: { from: location }
                         }}
                     />

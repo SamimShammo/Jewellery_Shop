@@ -77,7 +77,7 @@ const Purchase = () => {
                                 />
                             </Typography>
                             <Typography sx={{ fontWeight: 500, fontSize: "30px", mt: 2, mb: 2 }}>
-                                {products?.price}
+                                ${products?.price}
                             </Typography>
                             <hr />
                             <Box>

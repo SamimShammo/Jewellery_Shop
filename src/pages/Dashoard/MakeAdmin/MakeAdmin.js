@@ -3,7 +3,7 @@ import { Box } from '@mui/system';
 
 import React, { useState } from 'react';
 import { Container } from 'react-bootstrap';
-import Header from '../../Shared/Header/Header';
+
 
 
 const MakeAdmin = () => {
@@ -33,7 +33,7 @@ const MakeAdmin = () => {
     }
     return (
         <>
-            <Header></Header>
+
             <Container >
 
                 <Box sx={{ mt: 10 }}>

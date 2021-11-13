@@ -7,15 +7,16 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Button from '@mui/material/Button';
 import Paper from '@mui/material/Paper';
-import useAuth from '../../hooks/useAuth';
+
 import { CircularProgress, Typography } from '@mui/material';
 import axios from 'axios';
+import useAuth from '../../hooks/useAuth';
 
-const MyOrder = () => {
+const ManageAllOrder = () => {
     const { user, isLoading } = useAuth()
     const [orders, setOrder] = useState([])
     useEffect(() => {
-        fetch(`https://arcane-sierra-22755.herokuapp.com/jewellery/order?email=${user.email}`)
+        fetch(`https://arcane-sierra-22755.herokuapp.com/jewellery/totalOrder`)
             .then(res => res.json())
             .then(data => setOrder(data))
     }, [])
@@ -42,7 +43,7 @@ const MyOrder = () => {
         <>
             {isLoading && <CircularProgress />}
             <Typography sx={{ mb: 2 }}>
-                My Total  Order {orders.length} <i class="fas fa-shopping-cart " style={{ marginRight: 6, fontSize: '15px' }}></i>
+                Total  Order {orders.length} <i class="fas fa-shopping-cart " style={{ marginRight: 6, fontSize: '15px' }}></i>
             </Typography>
             <TableContainer component={Paper}>
 
@@ -86,4 +87,4 @@ const MyOrder = () => {
     );
 };
 
-export default MyOrder;
+export default ManageAllOrder;

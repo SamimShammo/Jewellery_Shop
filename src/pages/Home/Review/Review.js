@@ -6,7 +6,7 @@ import SingleReview from './SingleReview/SingleReview';
 const Review = () => {
     const [reviews, setReviews] = useState([])
     useEffect(() => {
-        fetch('http://localhost:5000/jewellery/review')
+        fetch('https://arcane-sierra-22755.herokuapp.com/jewellery/review')
             .then(res => res.json())
             .then(data => setReviews(data))
     }, [])
@@ -14,6 +14,7 @@ const Review = () => {
     return (
         <>
             <Container sx={{ mb: 10 }}>
+
                 <Box>
                     <Typography sx={{ fontSize: '40px', fontWeight: 600, textAlign: 'center', mb: 10, mt: 10 }}>
                         Our Client Review

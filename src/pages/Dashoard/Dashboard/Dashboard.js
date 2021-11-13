@@ -25,6 +25,12 @@ import Reviews from '../../Home/Reviews/Reviews';
 import PrivateDashboard from '../PrivateDashboard/PrivateDashboard';
 import Notfound from '../../Notfound/Notfound';
 import useAuth from '../../hooks/useAuth';
+import MakeAdmin from '../MakeAdmin/MakeAdmin';
+import PrivateAdmin from '../PrivateAdmin/PrivateAdmin';
+import ManageProducts from '../ManageProducts/ManageProducts';
+import DashboardHome from '../DashboardHome/DashboardHome';
+import ManageAllOrder from '../ManageAllOrder/ManageAllOrder';
+
 
 const drawerWidth = 240;
 
@@ -32,7 +38,7 @@ function Dashboard(props) {
     const { window } = props;
     const [mobileOpen, setMobileOpen] = React.useState(false);
     let { path, url } = useRouteMatch();
-    const { user, logOut } = useAuth()
+    const { user, logOut, admin } = useAuth()
     const handleDrawerToggle = () => {
         setMobileOpen(!mobileOpen);
     };
@@ -44,17 +50,29 @@ function Dashboard(props) {
             </Toolbar>
             <Divider />
             <Box sx={{ ml: 5, mt: 2 }}>
-                <Box sx={{ mb: 1 }}>
-                    <Link to={`${url}`} style={{ color: 'black', fontSize: "20px ", textDecoration: 'none', fontWeight: 600, Dashboard }} >My Order</Link>
+                {admin ? <Box><Box sx={{ mb: 1 }}>
+                    <Link to={`${url}/manageProducts`} style={{ color: 'black', fontSize: "20px ", textDecoration: 'none', fontWeight: 600 }} >Manage Products</Link>
                 </Box>
-                <Box sx={{ mb: 1 }}>
-                    <Link to={`${url}/reviews`} style={{ color: 'black', fontSize: "20px ", textDecoration: 'none', fontWeight: 600, Dashboard }} >Review</Link>
-                </Box>
-                <Box sx={{ mb: 1 }}>
-                    <Link to={`${url}/pay`} style={{ color: 'black', fontSize: "20px ", textDecoration: 'none', fontWeight: 600, Dashboard }} >Pay</Link>
-                </Box>
-                <Box sx={{ mb: 1 }}>
-                    {user?.email && <Button style={{ color: 'black', fontSize: "20px ", textDecoration: 'none', fontWeight: 600, Dashboard }} onClick={logOut}>Logout</Button>}
+                    <Box sx={{ mb: 1 }}>
+                        <Link to={`${url}/makeAdmin`} style={{ color: 'black', fontSize: "20px ", textDecoration: 'none', fontWeight: 600 }} >Make Admin</Link>
+                    </Box>
+                    <Box sx={{ mb: 1 }}>
+                        <Link to={`${url}/manageAllOrder`} style={{ color: 'black', fontSize: "20px ", textDecoration: 'none', fontWeight: 600 }} >Manage All Order </Link>
+                    </Box>
+                </Box> : <Box>
+                    <Box sx={{ mb: 1 }}>
+                        <Link to={`${url}/myOrder`} style={{ color: 'black', fontSize: "20px ", textDecoration: 'none', fontWeight: 600, Dashboard }} >My Order</Link>
+                    </Box>
+                    <Box sx={{ mb: 1 }}>
+                        <Link to={`${url}/reviews`} style={{ color: 'black', fontSize: "20px ", textDecoration: 'none', fontWeight: 600, }} >Review</Link>
+                    </Box>
+                    <Box sx={{ mb: 1 }}>
+                        <Link to={`${url}/pay`} style={{ color: 'black', fontSize: "20px ", textDecoration: 'none', fontWeight: 600 }} >Pay</Link>
+                    </Box>
+                </Box>}
+
+                <Box sx={{ mb: 1, mt: 40 }}>
+                    {user?.email && <Button style={{ color: 'black', fontSize: "20px ", textDecoration: 'none', fontWeight: 600 }} onClick={logOut}>Logout</Button>}
                 </Box>
             </Box>
 
@@ -64,88 +82,104 @@ function Dashboard(props) {
     const container = window !== undefined ? () => window().document.body : undefined;
 
     return (
-        <Box sx={{ display: 'flex' }}>
-            <CssBaseline />
-            <AppBar
+        <>
+            <Box sx={{ display: 'flex' }}>
+                <CssBaseline />
+                <AppBar
 
-                position="fixed"
-                sx={{
-                    backgroundColor: 'white',
-                    width: { sm: `calc(100% - ${drawerWidth}px)` },
-                    ml: { sm: `${drawerWidth}px` },
-                }}
-            >
-                <Toolbar>
-                    <IconButton
+                    position="fixed"
+                    sx={{
+                        backgroundColor: 'white',
+                        width: { sm: `calc(100% - ${drawerWidth}px)` },
+                        ml: { sm: `${drawerWidth}px` },
+                    }}
+                >
+                    <Toolbar>
+                        <IconButton
 
 
-                        aria-label="open drawer"
-                        edge="start"
-                        onClick={handleDrawerToggle}
-                        sx={{ mr: 2, color: 'black', display: { sm: 'none' } }}
+                            aria-label="open drawer"
+                            edge="start"
+                            onClick={handleDrawerToggle}
+                            sx={{ mr: 2, color: 'black', display: { sm: 'none' } }}
+                        >
+                            <MenuIcon />
+                        </IconButton>
+                        <Typography variant="h6" noWrap component="div">
+                            <Link to="/" style={{ color: 'black', fontSize: "20px ", textDecoration: 'none', fontWeight: 600, Dashboard }} >Go Back Home</Link>
+                        </Typography>
+                    </Toolbar>
+                </AppBar>
+                <Box
+                    component="nav"
+                    sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
+                    aria-label="mailbox folders"
+                >
+
+                    <Drawer
+                        container={container}
+                        variant="temporary"
+                        open={mobileOpen}
+                        onClose={handleDrawerToggle}
+                        ModalProps={{
+                            keepMounted: true, // Better open performance on mobile.
+                        }}
+                        sx={{
+                            display: { xs: 'block', sm: 'none' },
+                            '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
+                        }}
                     >
-                        <MenuIcon />
-                    </IconButton>
-                    <Typography variant="h6" noWrap component="div">
-                        <Link to="/" style={{ color: 'black', fontSize: "20px ", textDecoration: 'none', fontWeight: 600, Dashboard }} >Go Back Home</Link>
-                    </Typography>
-                </Toolbar>
-            </AppBar>
-            <Box
-                component="nav"
-                sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
-                aria-label="mailbox folders"
-            >
-                {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
-                <Drawer
-                    container={container}
-                    variant="temporary"
-                    open={mobileOpen}
-                    onClose={handleDrawerToggle}
-                    ModalProps={{
-                        keepMounted: true, // Better open performance on mobile.
-                    }}
-                    sx={{
-                        display: { xs: 'block', sm: 'none' },
-                        '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
-                    }}
+                        {drawer}
+                    </Drawer>
+                    <Drawer
+                        variant="permanent"
+                        sx={{
+                            display: { xs: 'none', sm: 'block' },
+                            '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
+                        }}
+                        open
+                    >
+                        {drawer}
+                    </Drawer>
+                </Box>
+                <Box
+                    component="main"
+                    sx={{ flexGrow: 1, p: 3, width: { sm: `calc(100% - ${drawerWidth}px)` } }}
                 >
-                    {drawer}
-                </Drawer>
-                <Drawer
-                    variant="permanent"
-                    sx={{
-                        display: { xs: 'none', sm: 'block' },
-                        '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
-                    }}
-                    open
-                >
-                    {drawer}
-                </Drawer>
-            </Box>
-            <Box
-                component="main"
-                sx={{ flexGrow: 1, p: 3, width: { sm: `calc(100% - ${drawerWidth}px)` } }}
-            >
-                <Toolbar />
-                <Box>
-                    <Switch>
-                        <Route exact path={path}>
-                            <MyOrder></MyOrder>
-                        </Route>
-                        <PrivateDashboard path={`${path}/pay`}>
-                            <Pay></Pay>
-                        </PrivateDashboard>
-                        <PrivateDashboard path={`${path}/reviews`}>
-                            <Reviews></Reviews>
-                        </PrivateDashboard>
-                        <Route exact path={`${path}*`}>
-                            <Notfound></Notfound>
-                        </Route>
-                    </Switch>
+                    <Toolbar />
+                    <Box>
+                        <Switch>
+                            <Route exact path={path}>
+                                <DashboardHome></DashboardHome>
+                            </Route>
+                            <PrivateDashboard exact path={`${path}/myOrder`}>
+                                <MyOrder></MyOrder>
+                            </PrivateDashboard>
+                            <PrivateDashboard exact path={`${path}/pay`}>
+                                <Pay></Pay>
+                            </PrivateDashboard>
+                            <PrivateDashboard exact path={`${path}/reviews`}>
+                                <Reviews></Reviews>
+                            </PrivateDashboard>
+                            <PrivateAdmin path={`${path}/makeAdmin`}>
+                                <MakeAdmin></MakeAdmin>
+                            </PrivateAdmin>
+                            <PrivateAdmin path={`${path}/manageAllOrder`}>
+                                <ManageAllOrder></ManageAllOrder>
+                            </PrivateAdmin>
+
+                            <PrivateAdmin exact path={`${path}/manageProducts`}>
+                                <ManageProducts></ManageProducts>
+                            </PrivateAdmin>
+                            <Route exact path={`${path}*`}>
+                                <Notfound></Notfound>
+                            </Route>
+                        </Switch>
+                    </Box>
                 </Box>
             </Box>
-        </Box>
+
+        </>
     );
 }
 

@@ -18,7 +18,7 @@ const Header = () => {
             {isLoading && <CircularProgress />}
             <Navbar bg="light" expand="lg" className="shadow" sticky="top">
                 <Container>
-                    <Navbar.Brand href="#" style={{ width: "20%" }}>
+                    <Navbar.Brand href="#" style={{ width: "30%" }}>
                         <img src={logo} alt="" style={{ width: "100%" }} />
                     </Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -26,9 +26,9 @@ const Header = () => {
                         <Nav className="ms-auto" style={{ alignItems: 'center' }}>
                             <Link to="/home" style={{ color: 'black', fontSize: "15px !important", textDecoration: 'none', fontWeight: 600, marginRight: 20 }}>Home</Link>
                             <Link to="/explore" style={{ color: 'black', fontSize: "15px !important", textDecoration: 'none', fontWeight: 600, marginRight: 20 }}>Explore</Link>
-                            {admin ? <Box> <Link to="/addProducts" style={{ color: 'black', fontSize: "15px !important", textDecoration: 'none', fontWeight: 600, marginRight: 20 }}>Add Products</Link> <Link to="/manageProducts" style={{ color: 'black', fontSize: "15px !important", textDecoration: 'none', fontWeight: 600, marginRight: 20 }}>Manage Products</Link><Link to="/makeAdmin" style={{ color: 'black', fontSize: "15px !important", textDecoration: 'none', fontWeight: 600, marginRight: 20 }}>Make Admin</Link> </Box> : <Box>
-                                <Link to="/dashboard" style={{ color: 'black', fontSize: "15px !important", textDecoration: 'none', fontWeight: 600, marginRight: 20 }}>Dashboard</Link></Box>
-                            }
+
+                            <Link to="/dashboard" style={{ color: 'black', fontSize: "15px !important", textDecoration: 'none', fontWeight: 600, marginRight: 20 }}>Dashboard</Link>
+
                             <Button className="text-lowercase " sx={{ color: '#222' }}> <i className="fas fa-user" > </i> {user?.email} </Button>
                             {user?.email ? <Link to="/" style={{ color: 'black', fontSize: "15px !important", textDecoration: 'none', fontWeight: 600, marginRight: 20 }}><Button color="inherit" onClick={logOut}>LogOut</Button> </Link> : <Link to="/login" style={{ color: 'black', fontSize: "15px !important", textDecoration: 'none', fontWeight: 600, marginRight: 20 }}><Button color="inherit">Login</Button> </Link>}
                         </Nav>

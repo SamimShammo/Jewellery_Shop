@@ -42,7 +42,7 @@ const useFirebase = () => {
             .then((result) => {
                 // Signed in 
                 const user = result.user;
-                const destination = location?.state?.from || '/';
+                const destination = location?.state?.from || '/dashBoard';
                 history?.replace(destination);
                 setError('')
             })
@@ -60,7 +60,7 @@ const useFirebase = () => {
             .then((result) => {
                 const user = result.user;
                 saveUser(user.email, user.displayName, 'PUT')
-                const destination = location?.state?.from || '/';
+                const destination = location?.state?.from || '/dashboard';
                 history?.replace(destination);
                 setError('')
             }).catch((error) => {
@@ -85,14 +85,14 @@ const useFirebase = () => {
         return () => unSubscriber;
     }, [])
     useEffect(() => {
-        fetch(`http://localhost:5000/users/${user.email}`)
+        fetch(`https://arcane-sierra-22755.herokuapp.com/users/${user.email}`)
             .then(res => res.json())
             .then(data => setAdmin(data.admin))
     }, [user.email])
 
     const saveUser = (email, displayName, method) => {
         const user = { email, displayName };
-        fetch("http://localhost:5000/users", {
+        fetch("https://arcane-sierra-22755.herokuapp.com/users", {
             method: method,
             headers: {
                 'content-type': 'application/json'

@@ -10,7 +10,7 @@ const AddProducts = () => {
     const onSubmit = data => {
         const confirmed = window.confirm('You want to add a newproduct')
         if (confirmed) {
-            axios.post('http://localhost:5000/jewellerys', data)
+            axios.post('https://arcane-sierra-22755.herokuapp.com/jewellerys', data)
                 .then(res => {
                     if (res.data.insertedId) {
                         alert('Successfully Added Product')

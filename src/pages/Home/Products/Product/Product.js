@@ -26,7 +26,7 @@ const Product = (props) => {
                         {product_description.slice(0, 70)}
                     </Typography>
                     <Typography sx={{ color: '#222', fontSize: '24px' }}>
-                        {price}
+                        ${price}
                     </Typography>
                     <Box className="middle ">
                         <Button className="btnCustom2 " onClick={() => handlePurchase(_id)}>PURCHASE</Button>

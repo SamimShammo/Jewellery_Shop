@@ -18,6 +18,24 @@
 
 }
 
+.btnCustomDelete {
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    background-color: Red !important;
+    color: white !important;
+
+    font-size: 12px !important;
+    padding: 8px 25px !important;
+}
+
+.btnCustomPending {
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    background-color: rgb(199, 199, 38) !important;
+    color: white !important;
+
+    font-size: 12px !important;
+    padding: 8px 25px !important;
+}
+
 .btnCustom:hover {
 
     color: white !important;

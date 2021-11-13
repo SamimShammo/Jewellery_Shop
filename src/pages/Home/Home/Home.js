@@ -1,5 +1,7 @@
 import React from 'react';
+import Footer from '../../Shared/Footer/Footer';
 import Header from '../../Shared/Header/Header';
+import CustomizeDiamond from '../CustomizeDiamond/CustomizeDiamond';
 
 import Products from '../Products/Products';
 import Review from '../Review/Review';
@@ -12,7 +14,9 @@ const Home = () => {
             <Header></Header>
             <TopBanner></TopBanner>
             <Products></Products>
+            <CustomizeDiamond></CustomizeDiamond>
             <Review></Review>
+            <Footer></Footer>
         </>
     );
 };
