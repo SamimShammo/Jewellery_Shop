@@ -26,8 +26,8 @@ const MyOrder = () => {
                 .then(res => {
                     if (res.data.deletedCount > 0) {
                         alert('Successfully')
-                        const remainingUsers = orders.filter(order => order._id !== id)
-                        setOrder(remainingUsers)
+                        const remainingOrder = orders.filter(order => order._id !== id)
+                        setOrder(remainingOrder)
                     }
                 })
 

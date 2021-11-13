@@ -13,6 +13,7 @@ import Notfound from './pages/Notfound/Notfound';
 import MakeAdmin from './pages/Admin/MakeAdmin/MakeAdmin';
 import PrivateAdmin from './pages/Admin/PrivateAdmin/PrivateAdmin';
 import AddProducts from './pages/Admin/AddProducts/AddProducts';
+import ManageProducts from './pages/Admin/ManageProducts/ManageProducts';
 
 
 
@@ -51,6 +52,9 @@ function App() {
             </PrivateAdmin>
             <PrivateAdmin path="/addProducts">
               <AddProducts></AddProducts>
+            </PrivateAdmin>
+            <PrivateAdmin path="/manageProducts">
+              <ManageProducts></ManageProducts>
             </PrivateAdmin>
             <Route path="*">
               <Notfound></Notfound>

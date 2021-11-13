@@ -26,7 +26,7 @@ const Header = () => {
                         <Nav className="ms-auto" style={{ alignItems: 'center' }}>
                             <Link to="/home" style={{ color: 'black', fontSize: "15px !important", textDecoration: 'none', fontWeight: 600, marginRight: 20 }}>Home</Link>
                             <Link to="/explore" style={{ color: 'black', fontSize: "15px !important", textDecoration: 'none', fontWeight: 600, marginRight: 20 }}>Explore</Link>
-                            {admin ? <Box> <Link to="/addProducts" style={{ color: 'black', fontSize: "15px !important", textDecoration: 'none', fontWeight: 600, marginRight: 20 }}>Add Products</Link> <Link to="/makeAdmin" style={{ color: 'black', fontSize: "15px !important", textDecoration: 'none', fontWeight: 600, marginRight: 20 }}>Make Admin</Link> </Box> : <Box>
+                            {admin ? <Box> <Link to="/addProducts" style={{ color: 'black', fontSize: "15px !important", textDecoration: 'none', fontWeight: 600, marginRight: 20 }}>Add Products</Link> <Link to="/manageProducts" style={{ color: 'black', fontSize: "15px !important", textDecoration: 'none', fontWeight: 600, marginRight: 20 }}>Manage Products</Link><Link to="/makeAdmin" style={{ color: 'black', fontSize: "15px !important", textDecoration: 'none', fontWeight: 600, marginRight: 20 }}>Make Admin</Link> </Box> : <Box>
                                 <Link to="/dashboard" style={{ color: 'black', fontSize: "15px !important", textDecoration: 'none', fontWeight: 600, marginRight: 20 }}>Dashboard</Link></Box>
                             }
                             <Button className="text-lowercase " sx={{ color: '#222' }}> <i className="fas fa-user" > </i> {user?.email} </Button>

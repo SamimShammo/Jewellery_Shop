@@ -20,7 +20,6 @@ const ExploreProducts = (props) => {
                 <Image src={img} className="img-fluid image" />
 
                 <Box sx={{ textAlign: 'center', mt: 2 }}>
-
                     <Typography sx={{ color: '#222', fontSize: "20px", fontWeight: 600, mb: 1 }}>
                         {nameResi}
                     </Typography>
@@ -28,7 +27,7 @@ const ExploreProducts = (props) => {
                         {desCrip}
                     </Typography>
                     <Typography sx={{ color: '#222', fontSize: '24px' }}>
-                        {price}
+                        ${price}
                     </Typography>
                     <Box className="middle">
                         <Button className="btnCustom2" onClick={() => handlePurchase(_id)}>PURCHASE</Button>
